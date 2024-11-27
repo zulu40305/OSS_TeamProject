@@ -1,14 +1,24 @@
-import React from 'react';
-import { fetchExchangeRate } from "./func";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import CurrencyList from './pages/currencyList';
+import Layout from './layout/layout';
 
 function App() {
-  const fetchData = async () => {
-    let data = await fetchExchangeRate('3wNf5tfXGjytedr8fF3AUEljbd30YBED');
-    console.log(data);
-  }
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          path: "/",
+          element: <CurrencyList />,
+        },
+      ]
+    }
+  ]);
 
   return (
-    <button onClick={fetchData}>ddd</button>
+    <RouterProvider router={router} />
   );
 }
 

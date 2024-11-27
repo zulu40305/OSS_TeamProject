@@ -1,0 +1,11 @@
+.currency_box {
+  width: 70%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 0.3rem;
+  overflow-y: scroll;
+}

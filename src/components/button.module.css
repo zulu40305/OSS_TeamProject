@@ -1,0 +1,35 @@
+button {
+  max-width: 20rem;
+  min-width: 10rem;
+}
+
+.confirm {
+  background-color: royalblue;
+  border: 0.2rem solid royalblue;
+  border-radius: 0.5rem;
+  color: whitesmoke;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 1rem;
+  margin: 0.5rem 0;
+}
+
+.cancel {
+  background-color: whitesmoke;
+  border: 0.2rem solid royalblue;
+  border-radius: 0.5rem;
+  color: royalblue;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1rem;
+  margin: 0.5rem 0;
+}
+
+.confirm:hover, .cancel:hover {
+  filter: brightness(1.1);
+}
+
+.confirm:active, .cancel:active {
+  filter: brightness(0.9);
+}
