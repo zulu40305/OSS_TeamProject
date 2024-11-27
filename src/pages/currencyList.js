@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './currencyList.module.css';
-import LeftPanel from '../components/leftPanel';
+import Panel from '../components/panel';
 import CurrencyBox from '../components/currencyBox';
 
 export default function CurrencyList() {
@@ -26,8 +26,7 @@ export default function CurrencyList() {
 
   return (
     <div className={styles.page_container}>
-      <LeftPanel getData={getData}/>
-      <div className={styles.page_divider} />
+      <Panel getData={getData}/>
       <CurrencyBox />
     </div>
   );
