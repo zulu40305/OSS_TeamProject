@@ -6,8 +6,8 @@
 }
 
 .confirm {
-  background-color: royalblue;
-  border: 0.2rem solid royalblue;
+  background-color: rgb(6, 13, 13);
+  border: 0.2rem solid rgb(6, 13, 13);
   border-radius: 0.5rem;
   color: whitesmoke;
   cursor: pointer;
@@ -17,9 +17,9 @@
 
 .cancel {
   background-color: whitesmoke;
-  border: 0.2rem solid royalblue;
+  border: 0.2rem solid rgb(6, 13, 13);
   border-radius: 0.5rem;
-  color: royalblue;
+  color: rgb(6, 13, 13);
   cursor: pointer;
   padding: 1rem;
   margin: 0.5rem 0;

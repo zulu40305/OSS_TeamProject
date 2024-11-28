@@ -1,29 +1,7 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import styles from './currencyCalculator.module.css';
 
 export default function CurrencyCalculator(props) {
-  const inputRef = useRef(0);
-  const outputRef = useRef(0);
-
-  const calculateInput = () => {
-    if (outputRef.current.value.trim() === "") {
-      inputRef.current.value = 0;
-      return;
-    }
-
-    if (outputRef.current.value >= 0) inputRef.current.value = (parseFloat(outputRef.current.value) * parseFloat(props.selected.deal_bas_r.replace(/,/g, ""))).toFixed(2);
-    else inputRef.current.value = 0;
-  }
-
-  const calculateOutput = () => {
-    if (inputRef.current.value.trim() === "") {
-      outputRef.current.value = 0;
-      return;
-    }
-
-    if (inputRef.current.value >= 0) outputRef.current.value = (parseFloat(inputRef.current.value) / parseFloat(props.selected.deal_bas_r.replace(/,/g, ""))).toFixed(2);
-    else outputRef.current.value = 0;
-  }
 
   return (
     <div className={styles.calculator_container}>
@@ -33,11 +11,11 @@ export default function CurrencyCalculator(props) {
           <div className={styles.calculator}>
             <div className={styles.calculator_input_container}>
               <label htmlFor="currency_input">{`한국 원(KRW)`}</label>
-              <input className={styles.calculator_input} type="text" defaultValue="0" name="currency_input" ref={inputRef} onChange={calculateOutput} />
+              <input className={styles.calculator_input} type="text" defaultValue="0" name="currency_input" ref={props.baseRef} onChange={props.calculateOutput} />
             </div>
             <div className={styles.calculator_output_container}>
               <label htmlFor="currency_output">{`${props.selected.cur_nm}(${props.selected.cur_unit})`}</label>
-              <input className={styles.calculator_output} type="text" defaultValue="0" name="currency_output" ref={outputRef} onChange={calculateInput} />
+              <input className={styles.calculator_output} type="text" defaultValue="0" name="currency_output" ref={props.targetRef} onChange={props.calculateInput} />
             </div>
           </div>
         :

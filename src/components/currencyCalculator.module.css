@@ -16,7 +16,7 @@
 }
 
 .calculator_input_container label, .calculator_output_container label {
-  color: royalblue;
+  color: rgb(6, 13, 13);
   text-align: right;
   font-weight: 600;
 }
@@ -24,7 +24,7 @@
 .calculator_input, .calculator_output {
   width: 13rem;
   padding: 0.5rem 0.75rem;
-  border: 0.15rem solid royalblue;
+  border: 0.15rem solid rgb(6, 13, 13);
   border-radius: 0.5rem;
   font-size: 1rem;
 }
