@@ -1,15 +1,24 @@
 .panel_container {
   width: 100%;
-
+  height: 40vh;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: whitesmoke;
   overflow: hidden;
 }
 
 .currency_calculator_section {
-  background-color: green;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .button_section {
+  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;

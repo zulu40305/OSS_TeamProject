@@ -1,0 +1,28 @@
+.calculator_container {
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.calculator_input_container, .calculator_output_container {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+.calculator_input_container label, .calculator_output_container label {
+  color: royalblue;
+  text-align: right;
+  font-weight: 600;
+}
+
+.calculator_input, .calculator_output {
+  padding: 0.25rem 0.5rem;
+  border: 0.15rem solid royalblue;
+  border-radius: 0.5rem;
+}

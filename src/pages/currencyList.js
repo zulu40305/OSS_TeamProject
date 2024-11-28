@@ -5,6 +5,7 @@ import CurrencyBox from '../components/currencyBox';
 
 export default function CurrencyList() {
   const [currencyData, setCurrencyData] = useState([]);
+  const [selectedCurrency, setSelectedCurrency] = useState(null);
 
   const getData = async () => {
     const url = `/exchangeJSON?authkey=3wNf5tfXGjytedr8fF3AUEljbd30YBED&data=AP01`;
@@ -14,6 +15,7 @@ export default function CurrencyList() {
       const data = await response.json();
       setCurrencyData(data);
       console.log(data);
+      setSelectedCurrency(data[0]);
     } catch (error) {
       console.error('Error fetching exchange rate:', error);
       throw error;
@@ -26,8 +28,8 @@ export default function CurrencyList() {
 
   return (
     <div className={styles.page_container}>
-      <Panel getData={getData}/>
-      <CurrencyBox />
+      <Panel selected={selectedCurrency} getData={getData}/>
+      <CurrencyBox data={currencyData}/>
     </div>
   );
 }
