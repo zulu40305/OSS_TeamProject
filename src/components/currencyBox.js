@@ -31,7 +31,7 @@ export default function CurrencyBox(props) {
         "API 요청 횟수 한도를 초과하여 데이터를 불러올 수 없습니다."
         :
         props.data.map(currencyData => (
-          <CurrencyElement key={currencyData.cur_unit} iso_code={parse_iso_code(currencyData.cur_unit)} data={currencyData} />
+          <CurrencyElement key={currencyData.cur_unit} iso_code={parse_iso_code(currencyData.cur_unit)} data={currencyData} setTarget={props.setTarget} />
         ))
       }
     </div>

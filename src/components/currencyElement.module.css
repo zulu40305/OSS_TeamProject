@@ -24,19 +24,30 @@
 }
 
 .flag_container {
-  max-width: 50px;
-  min-width: 50px;
+  min-width: 15rem;
+  max-width: 15rem;
+  padding: 0 1em;
   max-height: 2rem;
   min-height: 2rem;
   border-right: 0.2rem solid royalblue;
+  font-weight: 600;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   text-align: center;
 }
 
+.flag_container *:first-child {
+  margin-right: 0.5rem;
+}
+
 .information_container {
+  width: 70%;
   font-size: 1rem;
   font-weight: 600;
   margin-left: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
 }

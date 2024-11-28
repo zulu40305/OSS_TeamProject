@@ -8,10 +8,11 @@ export default function CurrencyList() {
   const [selectedCurrency, setSelectedCurrency] = useState(null);
 
   const getData = async () => {
-    const url = `/exchangeJSON?authkey=3wNf5tfXGjytedr8fF3AUEljbd30YBED&data=AP01`;
-
+    const mock_API = 'https://67283275270bd0b97554a345.mockapi.io/currency';
+    const currency_API = '/exchangeJSON?authkey=3wNf5tfXGjytedr8fF3AUEljbd30YBED&data=AP01';
+  
     try {
-      const response = await fetch(url);
+      const response = await fetch(currency_API);
       const data = await response.json();
       setCurrencyData(data);
       console.log(data);
@@ -22,14 +23,16 @@ export default function CurrencyList() {
     }
   }
 
+  const setTarget = (data) => setSelectedCurrency(data);
+
   useEffect(() => {
-    
-  });
+    getData();
+  }, []);
 
   return (
     <div className={styles.page_container}>
-      <Panel selected={selectedCurrency} getData={getData}/>
-      <CurrencyBox data={currencyData}/>
+      <Panel selected={selectedCurrency} getData={getData} />
+      <CurrencyBox data={currencyData} setTarget={setTarget} />
     </div>
   );
 }
