@@ -15,7 +15,7 @@ export default function CurrencyList() {
       return;
     }
 
-    if (targetRef.current.value >= 0) baseRef.current.value = (parseFloat(targetRef.current.value) * parseFloat(selectedCurrency.deal_bas_r.replace(/,/g, ""))).toFixed(2);
+    if (targetRef.current.value >= 0) baseRef.current.value = parseFloat((parseFloat(targetRef.current.value) * parseFloat(selectedCurrency.deal_bas_r.replace(/,/g, ""))).toFixed(5));
     else baseRef.current.value = 0;
   }
 
@@ -25,7 +25,7 @@ export default function CurrencyList() {
       return;
     }
 
-    if (baseRef.current.value >= 0) targetRef.current.value = (parseFloat(baseRef.current.value) / parseFloat(selectedCurrency.deal_bas_r.replace(/,/g, ""))).toFixed(2);
+    if (baseRef.current.value >= 0) targetRef.current.value = parseFloat((parseFloat(baseRef.current.value) / parseFloat(selectedCurrency.deal_bas_r.replace(/,/g, ""))).toFixed(5));
     else targetRef.current.value = 0;
   }
 
