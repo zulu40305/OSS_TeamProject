@@ -10,7 +10,8 @@ export default function CurrencyElement(props) {
           props.iso_code === "EU" ? 
           <>
             <img 
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/225px-Flag_of_Europe.svg.png" 
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/225px-Flag_of_Europe.svg.png"
+              alt=""
               style={{width: "30px", height: "23px"}} 
             />
             {`${props.data.cur_nm}(${props.data.cur_unit})`}
