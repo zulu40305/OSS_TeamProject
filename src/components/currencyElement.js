@@ -23,10 +23,10 @@ export default function CurrencyElement(props) {
         }
       </div>
       <div className={styles.information_container}>
-        <div className={styles.data_ttb}>{`매입률(TTB): ${props.data.ttb}`}</div>
-        <div className={styles.data_tts}>{`매도율(TTS): ${props.data.tts}`}</div>
-        <div className={styles.data_deal_bas_r}>{`매매기준율(Deal_Bas_R): ${props.data.deal_bas_r}`}</div>
-        <div className={styles.data_bkpr}>{`장부가(bkpr): ${props.data.bkpr}`}</div>
+        <div className={styles.data_ttb}>{`매입률(TTB): ${props.data.ttb}원`}</div>
+        <div className={styles.data_tts}>{`매도율(TTS): ${props.data.tts}원`}</div>
+        <div className={styles.data_deal_bas_r}>{`매매기준율(Deal_Bas_R): ${props.data.deal_bas_r}원`}</div>
+        <div className={styles.data_bkpr}>{`장부가(bkpr): ${props.data.bkpr}원`}</div>
       </div>
     </div>
   );
