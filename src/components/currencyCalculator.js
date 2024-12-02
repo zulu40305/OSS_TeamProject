@@ -1,20 +1,31 @@
 import React from 'react';
 import styles from './currencyCalculator.module.css';
+import { CircleFlag } from 'react-circle-flags'
 
 export default function CurrencyCalculator(props) {
 
+  const parse_iso_code = (currency) => {
+    return currency.substr(0, 2).toLowerCase();
+  }
+
   return (
     <div className={styles.calculator_container}>
-      <p className={styles.calculator_title}>환율 계산기</p>
+      <h3 className={styles.calculator_title}>KRW Converter</h3>
       {
         props.selected ?
           <div className={styles.calculator}>
             <div className={styles.calculator_input_container}>
-              <label htmlFor="currency_input">{`한국 원(KRW)`}</label>
+              <label className={styles.currency_label} htmlFor="currency_input">
+                {`한국 원(KRW)`}
+                <CircleFlag className={styles.country_flag} countryCode="kr" height="25" />
+              </label>
               <input className={styles.calculator_input} type="text" defaultValue="0" name="currency_input" ref={props.baseRef} onChange={props.calculateOutput} />
             </div>
             <div className={styles.calculator_output_container}>
-              <label htmlFor="currency_output">{`${props.selected.cur_nm}(${props.selected.cur_unit})`}</label>
+              <label className={styles.currency_label} htmlFor="currency_output">
+                {`${props.selected.cur_nm}(${props.selected.cur_unit})`}
+                <CircleFlag className={styles.country_flag} countryCode={parse_iso_code(props.selected.cur_unit)} height="25" />
+              </label>
               <input className={styles.calculator_output} type="text" defaultValue="0" name="currency_output" ref={props.targetRef} onChange={props.calculateInput} />
             </div>
           </div>

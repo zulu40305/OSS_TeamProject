@@ -10,8 +10,8 @@ export default function Panel(props) {
         <CurrencyCalculator selected={props.selected} baseRef={props.baseRef} targetRef={props.targetRef} calculateInput={props.calculateInput} calculateOutput={props.calculateOutput} />
       </div>
       <div className={styles.button_section}>
-        <Button width="80%" btn="confirm" click={props.getData}>환율 정보 추가</Button>
-        <Button width="80%" btn="cancel" click={props.fetchData}>환율 정보 새로고침</Button>
+        <Button width="80%" btn="confirm" click={props.getData}>Add Currency</Button>
+        <Button width="80%" btn="cancel" click={props.fetchData}>Refresh Data</Button>
       </div>
     </div>
   );

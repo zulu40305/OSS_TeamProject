@@ -1,34 +1,25 @@
 .currency_element_container {
-  min-width: 70rem;
-  width: 95%;
-  min-height: 3rem;
+  min-width: 45rem;
+  width: 70%;
+  max-width: 70rem;
+  min-height: 5rem;
   display: flex;
   justify-content: left;
   align-items: center;
   text-align: center;
-  background-color: whitesmoke;
-  border-radius: 1rem;
-  box-shadow: 0 3px 3px -1px rgba(0,0,0,0.75);
-  -webkit-box-shadow: 0 3px 3px -1px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0 3px 3px -1px rgba(0,0,0,0.75);
-  margin: 0.25rem 0;
+  background-color: white;
+  border-radius: 0.5rem;
   cursor: pointer;
 }
 
-.currency_element_container:hover {
-  filter: brightness(1.1);
-}
-
-.currency_element_container:active {
-  filter: brightness(0.9);
+.currency_element_container:nth-child(even) {
+  background-color: whitesmoke;
 }
 
 .flag_container {
   min-width: 15rem;
-  max-width: 15rem;
-  padding: 0 1em;
-  max-height: 2rem;
-  min-height: 2rem;
+  min-height: 3rem;
+  padding: 0 1rem;
   border-right: 0.2rem solid rgb(6, 13, 13);
   font-weight: 600;
   display: flex;
@@ -42,12 +33,108 @@
 }
 
 .information_container {
-  width: 70%;
+  width: 100%;
   font-size: 1rem;
   font-weight: 600;
-  margin-left: 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
+}
+
+.information_container .col {
+  width: 13rem;
   text-align: left;
+}
+
+.information_container .rate_of_change_container {
+  width: 4rem;
+}
+
+.rate_of_change_container .rate_of_change {
+  padding: 0.5rem 0;
+  border-radius: 0.25rem;
+}
+
+.rate_of_change_container .increase {
+  color: royalblue;
+  background-color: rgba(65, 105, 225, 0.1);
+}
+
+.rate_of_change_container .decrease {
+  color: tomato;
+  background-color: rgba(255, 99, 71, 0.1);
+}
+
+@media (max-width: 1500px) {
+  .flag_container {
+    min-width: 12rem;
+    padding: 0 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .information_container {
+    font-size: 0.8rem;
+  }
+  
+  .information_container .col {
+    width: 10rem;
+  }
+  
+  .information_container .rate_of_change_container {
+    width: 3.5rem;
+  }
+  
+  .rate_of_change_container .rate_of_change {
+    padding: 0.5rem 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .flag_container {
+    min-width: 9rem;
+    padding: 0 0.75rem;
+    font-size: 0.7rem;
+  }
+  
+  .information_container {
+    font-size: 0.7rem;
+  }
+  
+  .information_container .col {
+    width: 9rem;
+    text-align: left;
+  }
+  
+  .information_container .rate_of_change_container {
+    width: 3rem;
+  }
+  
+  .rate_of_change_container .rate_of_change {
+    padding: 0.5rem 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .flag_container {
+    min-width: 9rem;
+    padding: 0 0.75rem;
+    font-size: 0.7rem;
+  }
+  
+  .information_container {
+    font-size: 0.7rem;
+  }
+  
+  .information_container .col {
+    width: 9rem;
+    text-align: left;
+  }
+  
+  .information_container .rate_of_change_container {
+    width: 3rem;
+  }
+  
+  .rate_of_change_container .rate_of_change {
+    padding: 0.5rem 0;
+  }
 }

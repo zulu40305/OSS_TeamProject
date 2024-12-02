@@ -13,6 +13,14 @@ function App() {
           path: "/",
           element: <CurrencyList />,
         },
+        {
+          path: "/add_currency",
+          element: <CurrencyList />,
+        },
+        {
+          path: "/detail",
+          element: <CurrencyList />,
+        },
       ]
     }
   ]);
