@@ -1,5 +1,6 @@
 import styles from './currencyElement.module.css';
 import { ReactCountryFlag } from '@fadi-ui/react-country-flag';
+import Flag from 'react-flagkit';
 
 export default function CurrencyElement(props) {
 
@@ -12,13 +13,13 @@ export default function CurrencyElement(props) {
             <img 
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/225px-Flag_of_Europe.svg.png"
               alt=""
-              style={{width: "30px", height: "23px"}} 
+              style={{width: "25px", height: "19px"}} 
             />
             {`${props.data.cur_nm}(${props.data.cur_unit})`}
           </>
           :
           <>
-            <ReactCountryFlag countryCode={props.iso_code} svg width={30} height={23} />
+            <Flag country={props.iso_code} size={25} />
             {`${props.data.cur_nm}(${props.data.cur_unit})`}
           </>
         }
@@ -37,7 +38,7 @@ export default function CurrencyElement(props) {
           <div className={styles.data_bkpr}>{`KFTC_Bkpr: ${props.data.kftc_bkpr}`}</div>
         </div>
         <div className={styles.rate_of_change_container}>
-          <div className={`${styles.rate_of_change} ${styles.increase}`}>0.50%</div>
+          <div className={`${styles.rate_of_change} ${styles.increase}`}>+0.50%</div>
         </div>
       </div>
     </div>

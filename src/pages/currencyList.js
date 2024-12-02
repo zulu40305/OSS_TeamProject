@@ -31,7 +31,7 @@ export default function CurrencyList() {
 
   const getData = async () => {
     // const mock_API = 'https://67283275270bd0b97554a345.mockapi.io/currency';
-    const currency_API = '/exchangeJSON?authkey=3wNf5tfXGjytedr8fF3AUEljbd30YBED&data=AP01';
+    const currency_API = '/exchangeJSON?authkey=3wNf5tfXGjytedr8fF3AUEljbd30YBED&searchdate=20241202&data=AP01';
   
     try {
       const response = await fetch(currency_API);

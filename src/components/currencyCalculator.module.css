@@ -27,7 +27,7 @@
 
 .country_flag {
   border-radius: 1rem;
-  border: 0.1rem solid black;
+  border: 0.05rem solid grey;
 }
 
 .calculator_input, .calculator_output {

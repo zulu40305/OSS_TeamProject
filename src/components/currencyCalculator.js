@@ -30,7 +30,7 @@ export default function CurrencyCalculator(props) {
             </div>
           </div>
         :
-        <h3>비교할 환율을 선택해주세요</h3>
+        <h3>Currency not selected</h3>
       }
     </div>
   );

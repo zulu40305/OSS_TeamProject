@@ -10,10 +10,15 @@
   background-color: white;
   border-radius: 0.5rem;
   cursor: pointer;
+  transition: transform 0.1s ease;
 }
 
 .currency_element_container:nth-child(even) {
   background-color: whitesmoke;
+}
+
+.currency_element_container:hover {
+  transform: scale(1.03);
 }
 
 .flag_container {
@@ -30,6 +35,11 @@
 
 .flag_container *:first-child {
   margin-right: 0.5rem;
+}
+
+.flag_icon {
+  width: 25px;
+  border: 1px solid grey;
 }
 
 .information_container {
@@ -56,8 +66,8 @@
 }
 
 .rate_of_change_container .increase {
-  color: royalblue;
-  background-color: rgba(65, 105, 225, 0.1);
+  color: forestgreen;
+  background-color: rgba(34, 139, 34, 0.1);
 }
 
 .rate_of_change_container .decrease {
