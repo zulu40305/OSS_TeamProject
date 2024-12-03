@@ -1,6 +1,5 @@
 .currency_element_container {
   min-width: 45rem;
-  width: 70%;
   max-width: 70rem;
   min-height: 5rem;
   display: flex;
@@ -44,6 +43,7 @@
 
 .information_container {
   width: 100%;
+  padding: 1rem;
   font-size: 1rem;
   font-weight: 600;
   display: flex;
@@ -84,6 +84,7 @@
   
   .information_container {
     font-size: 0.8rem;
+    padding: 0 0.75rem;
   }
   
   .information_container .col {

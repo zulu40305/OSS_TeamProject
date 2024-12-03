@@ -25,14 +25,6 @@
   margin: 0.5rem 0;
 }
 
-.confirm:hover, .cancel:hover {
-  filter: brightness(1.1);
-}
-
-.confirm:active, .cancel:active {
-  filter: brightness(0.9);
-}
-
 @media (max-width: 1000px) {
   .button {
     max-width: 15rem;

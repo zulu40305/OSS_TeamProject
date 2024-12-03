@@ -1,5 +1,23 @@
+.link {
+  display: inline-flex;
+  justify-content: left;
+  align-items: center;
+  text-decoration: none;
+}
+
 .header {
   padding: 2rem 2rem;
-  background-color: rgb(6, 13, 13);
-  color: whitesmoke;
+  background-color: white;
+  color: rgb(6, 13, 13);
+}
+
+.icon {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+}
+
+.header_label {
+  color: rgb(6, 13, 13);
+  font-size: 1.5rem;
 }

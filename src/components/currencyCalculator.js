@@ -10,7 +10,6 @@ export default function CurrencyCalculator(props) {
 
   return (
     <div className={styles.calculator_container}>
-      <h3 className={styles.calculator_title}>KRW Converter</h3>
       {
         props.selected ?
           <div className={styles.calculator}>

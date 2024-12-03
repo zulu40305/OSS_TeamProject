@@ -26,6 +26,7 @@ export default function CurrencyBox(props) {
         <h4>Korea Standard Time (KST)</h4>
         <h4>{getFormattedDate()}</h4>
       </div>
+      <div className={styles.currency_display}>
       {
         props.data.length === 0 ?
         "Could not retrieve currency data due to maintenance on the API provider."
@@ -37,6 +38,7 @@ export default function CurrencyBox(props) {
           <CurrencyElement key={currencyData.cur_unit} iso_code={parse_iso_code(currencyData.cur_unit)} data={currencyData} setTarget={props.setTarget} />
         ))
       }
+      </div>
     </div>
   );
 }
