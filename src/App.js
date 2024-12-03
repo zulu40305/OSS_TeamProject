@@ -1,5 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import CurrencyList from './pages/currencyList';
+import AddCurrency from './pages/addCurrency';
+import Detail from './pages/detail';
 import Layout from './layout/layout';
 
 function App() {
@@ -15,11 +17,11 @@ function App() {
         },
         {
           path: "/add_currency",
-          element: <CurrencyList />,
+          element: <AddCurrency />,
         },
         {
           path: "/detail",
-          element: <CurrencyList />,
+          element: <Detail />,
         },
       ]
     }
