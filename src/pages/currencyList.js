@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import styles from './currencyList.module.css';
 import Panel from '../components/panel';
 import CurrencyBox from '../components/currencyBox';
+import Graph from '../components/graph';
 
 export default function CurrencyList() {
   const [currencyData, setCurrencyData] = useState([]);
@@ -55,8 +56,22 @@ export default function CurrencyList() {
 
   return (
     <div className={styles.page_container}>
-      <Panel selected={selectedCurrency} getData={getData} baseRef={baseRef} targetRef={targetRef} calculateInput={calculateInput} calculateOutput={calculateOutput} />
-      <CurrencyBox data={currencyData} setTarget={setTarget} />
+      <div className={styles.page_section_panel}>
+        <Panel 
+          selected={selectedCurrency} 
+          getData={getData} 
+          baseRef={baseRef} 
+          targetRef={targetRef} 
+          calculateInput={calculateInput} 
+          calculateOutput={calculateOutput} 
+        />
+      </div>
+      <div className={styles.page_section_graph}>
+        <Graph />
+      </div>
+      <div className={styles.page_section_calculator}>
+        <CurrencyBox data={currencyData} setTarget={setTarget} />
+      </div>
     </div>
   );
 }

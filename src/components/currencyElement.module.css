@@ -1,5 +1,5 @@
 .currency_element_container {
-  min-width: 45rem;
+  width: 100%;
   max-width: 70rem;
   min-height: 5rem;
   display: flex;
@@ -65,13 +65,18 @@
   border-radius: 0.25rem;
 }
 
+.rate_of_change_container .unchanged {
+  color: black;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 .rate_of_change_container .increase {
-  color: forestgreen;
+  color: green;
   background-color: rgba(34, 139, 34, 0.1);
 }
 
 .rate_of_change_container .decrease {
-  color: tomato;
+  color: red;
   background-color: rgba(255, 99, 71, 0.1);
 }
 
@@ -147,5 +152,14 @@
   
   .rate_of_change_container .rate_of_change {
     padding: 0.5rem 0;
+  }
+}
+
+@media (max-width: 750px) {
+  .information_container .col {
+    width: 7rem;
+  }
+  .col3 {
+    display: none;
   }
 }

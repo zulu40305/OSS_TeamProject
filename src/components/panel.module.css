@@ -1,5 +1,6 @@
 .panel_container {
   width: 80%;
+  max-width: 70rem;
   height: 17rem;
   padding: 2rem 0;
   display: flex;
@@ -7,7 +8,8 @@
   background-color: white;
   border-radius: 1.5rem;
   overflow: hidden;
-  margin: 4rem 0 1.5rem 0;
+  margin: 4rem 0 4rem 0;
+  box-shadow: 0 5px 10px 0 black;
 }
 
 .currency_calculator_section {
