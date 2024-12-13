@@ -9,7 +9,7 @@ export default function Search(props) {
         <button className={styles.search_btn} onClick={props.applyFilter}>Search</button>
       </div>
       
-      <select className={styles.select} onChange={(e) => props.setOption(e.target.value)}>
+      <select className={styles.select} onChange={(e) => props.setOption(e.target.value)} disabled={props.data.length === 0 || props.data[0].result === 4}>
         <option value="all">All</option>
         <option value="increasing">Increasing</option>
         <option value="decreasing">Decreasing</option>

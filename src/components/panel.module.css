@@ -10,7 +10,7 @@
 .panel_content_container {
   width: 80%;
   max-width: 70rem;
-  height: 17rem;
+  height: 15rem;
   padding: 2rem 0;
   margin-bottom: 2rem;
   display: flex;
@@ -22,7 +22,7 @@
 }
 
 .currency_calculator_section {
-  width: 70%;
+  width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,7 +30,7 @@
 }
 
 .button_section {
-  width: 30%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -16,7 +16,7 @@ export default function Panel(props) {
           <Button width="80%" btn="cancel" click={props.getData}>Refresh Data</Button>
         </div>
       </div>
-      <Link to="/detail"><Button width="80%" btn="confirm">Show Detail</Button></Link>
+      <Link to="/detail" state={{data: props.targetData}}><Button width="80%" btn="confirm">Show Detail</Button></Link>
     </div>
   );
 }

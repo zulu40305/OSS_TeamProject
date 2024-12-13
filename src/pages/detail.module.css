@@ -1,0 +1,89 @@
+.page_container {
+  padding: 10rem 0 10rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin-left: 0.25rem;
+}
+
+.description {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.input_element_container {
+  height: 80%;
+  min-height: 45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.input {
+  width: 40%;
+  max-width: 30rem;
+  min-width: 20rem;
+  height: 1.5rem;
+  padding: 0.25rem 0.75rem;
+  border: 2.5px solid rgb(6, 13, 13);
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.warning_input {
+  width: 40%;
+  max-width: 30rem;
+  min-width: 20rem;
+  height: 1.5rem;
+  padding: 0.25rem 0.75rem;
+  border: 2.5px solid red;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.warning {
+  margin-left: 0.25rem;
+  color: tomato;  
+}
+
+.btn_container {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 1.5rem; 
+}
+
+.btn {
+  width: 20%;
+  min-width: 12rem;
+  max-width: 15rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  padding: 0.75rem 0;
+  cursor: pointer;
+}
+
+.btn_save {
+  background-color: rgb(6, 13, 13);
+  color: white;
+}
+
+.btn_delete {
+  color: white;
+  background-color: crimson;
+}

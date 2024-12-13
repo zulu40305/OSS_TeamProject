@@ -8,6 +8,7 @@ export default function CurrencyList() {
   const [currencyData, setCurrencyData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [selectedCurrency, setSelectedCurrency] = useState(null);
+
   const baseRef = useRef(0);
   const targetRef = useRef(0);
   const searchRef = useRef("");
@@ -67,7 +68,7 @@ export default function CurrencyList() {
   }
 
   const calculateInput = () => {
-    if (targetRef.current.value.trim() === "") {
+    if (targetRef.current.value === "") {
       baseRef.current.value = 0;
       return;
     }
@@ -77,7 +78,7 @@ export default function CurrencyList() {
   }
 
   const calculateOutput = () => {
-    if (baseRef.current.value.trim() === "") {
+    if (baseRef.current.value === "") {
       targetRef.current.value = 0;
       return;
     }
@@ -86,59 +87,16 @@ export default function CurrencyList() {
     else targetRef.current.value = 0;
   }
 
-  // need to fix
-  const addDataToMockAPI = async (data) => {
-    getDataFromMockAPI();
-    const mock_API = 'https://67283275270bd0b97554a345.mockapi.io/currency';
-    const new_data = {
-      id: data.id,
-      result: 1,
-      cur_nm: data.cur_nm,
-      cur_unit: data.cur_unit,
-      ttb: data.ttb,
-      tts: data.tts,
-      deal_bas_r: data.deal_bas_r,
-      bkpr: data.bkpr,
-      kftc_deal_bas_r: data.kftc_deal_bas_r,
-      kftc_bkpr: data.kftc_bkpr
-    };
-
-    try {
-      await fetch(mock_API, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(new_data),
-      });
-    } catch (error) {
-      console.error("An error occurred while adding a data.", error);
-      throw error;
-    }
-  }
-
-  // need to fix
   const saveDataToMockAPI = async (data) => {
     const mock_API = 'https://67283275270bd0b97554a345.mockapi.io/currency';
 
-    const refined_data = data.map((d, i) => {
-      return {
-        result: 1,
-        id: i,
-        cur_nm: d.cur_nm,
-        cur_unit: d.cur_unit,
-        ttb: d.ttb,
-        tts: d.tts,
-        deal_bas_r: d.deal_bas_r,
-        bkpr: d.bkpr,
-        kftc_deal_bas_r: d.kftc_deal_bas_r,
-        kftc_bkpr: d.kftc_bkpr
-      }
-    })
+    const refined_data = { data: data };
   
     try {
-      await fetch(mock_API, {
-        method: 'POST',
+      await fetch(`${mock_API}/1`, {
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify(refined_data),
       });
     } catch (error) {
       console.error("An error occurred while adding a data.", error);
@@ -146,14 +104,13 @@ export default function CurrencyList() {
     }
   };
 
-  // need to fix
   const getDataFromMockAPI = async () => {
     const mock_API = 'https://67283275270bd0b97554a345.mockapi.io/currency';
 
     try {
       const response = await fetch(mock_API);
       const data = await response.json();
-      return data[0].currency_array;
+      return data[0].data;
     } catch (error) {
       console.error("An error occurred while loading data.", error);
       throw error;
@@ -161,10 +118,11 @@ export default function CurrencyList() {
   }
 
   const getDataFromOpenAPI = async () => {
+    const dateInfo = getDate();
     const API_today = `/exchangeJSON?authkey=3wNf5tfXGjytedr8fF3AUEljbd30YBED&searchdate=${dateInfo.today}&data=AP01`;
     const API_yesterday = `/exchangeJSON?authkey=3wNf5tfXGjytedr8fF3AUEljbd30YBED&searchdate=${dateInfo.yesterday}&data=AP01`;
     const API_dayBeforeYesterday = `/exchangeJSON?authkey=3wNf5tfXGjytedr8fF3AUEljbd30YBED&searchdate=${dateInfo.beforeYesterday}&data=AP01`;
-    const dateInfo = getDate();
+    let dataArray = await getDataFromMockAPI();
     let response, response2, data, data2;
   
     try {
@@ -181,6 +139,7 @@ export default function CurrencyList() {
 
           response2 = await fetch(API_dayBeforeYesterday);
           data2 = await response2.json();
+
         } catch (error) {
           console.error('Error fetching exchange rate:', error);
           throw error;
@@ -191,18 +150,35 @@ export default function CurrencyList() {
         let todayValue = parseFloat(e.deal_bas_r.replace(",",""));
         let yesterdayValue = parseFloat(data2[i].deal_bas_r.replace(",",""));
 
-        return {
+        let data = {
+          id: i,
           ...e,
           rate_of_change: (((todayValue - yesterdayValue) / yesterdayValue) * 100).toFixed(2)
         }
+
+        delete data.yy_efee_r;
+        delete data.ten_dd_efee_r;
+
+        return data;
       });
 
-      // await saveDataToMockAPI(data);
-      // const latest_data = await getDataFromMockAPI();
+      modifiedData.map((e) => {
+        if (!dataArray.find(i => i.id === e.id)) dataArray.push(e);
+      });
 
-      setCurrencyData(modifiedData);
-      setFilteredData(modifiedData);
-      setSelectedCurrency(modifiedData[0]);
+      dataArray.map((e) => {
+        const coveredData = modifiedData.find(i => i.id === e.id);
+        if (coveredData) e = coveredData;
+      });
+
+      dataArray = dataArray.sort((a, b) => a.cur_unit.localeCompare(b.cur_unit));
+
+      await saveDataToMockAPI(dataArray);
+      const savedData = await getDataFromMockAPI();
+
+      setCurrencyData(savedData);
+      setFilteredData(savedData);
+      setSelectedCurrency(savedData[0]);
     } catch (error) {
       console.error('Error fetching exchange rate:', error);
       throw error;
@@ -210,7 +186,18 @@ export default function CurrencyList() {
   }
 
   useEffect(() => {
-    // getDataFromMockAPI();
+    const getData = async () => {
+      try {
+        const data = await getDataFromMockAPI();
+        setCurrencyData(data);
+        setFilteredData(data);
+        setSelectedCurrency(data[0]);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    
+    getData();
   }, []);
 
   return (
@@ -221,12 +208,13 @@ export default function CurrencyList() {
           getData={getDataFromOpenAPI} 
           baseRef={baseRef} 
           targetRef={targetRef} 
+          targetData={selectedCurrency}
           calculateInput={calculateInput} 
           calculateOutput={calculateOutput} 
         />
       </div>
       <div className={styles.page_section_currency}>
-        <Search searchRef={searchRef} applyFilter={applyFilter} setOption={setOption} />
+        <Search searchRef={searchRef} applyFilter={applyFilter} setOption={setOption} data={filteredData} />
         <CurrencyBox data={filteredData} setTarget={setTarget} />
       </div>
     </div>
