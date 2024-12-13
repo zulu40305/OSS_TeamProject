@@ -1,5 +1,6 @@
 import styles from './currencyBox.module.css';
 import CurrencyElement from './currencyElement';
+import Search from '../components/search';
 
 export default function CurrencyBox(props) {
 

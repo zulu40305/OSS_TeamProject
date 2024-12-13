@@ -15,9 +15,11 @@
   justify-content: center;
 }
 
-.page_section_calculator {
+.page_section_currency {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-color: rgb(6, 13, 13);
 }

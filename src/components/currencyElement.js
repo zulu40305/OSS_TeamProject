@@ -27,7 +27,11 @@ export default function CurrencyElement(props) {
           <div className={styles.data_bkpr}>{`KFTC_Bkpr: ${props.data.kftc_bkpr}`}</div>
         </div>
         <div className={styles.rate_of_change_container}>
-          <div className={`${styles.rate_of_change} ${styles.decrease}`}>+0.50%</div>
+          {
+            props.data.rate_of_change > 0 ? <div className={`${styles.rate_of_change} ${styles.increase}`}>+{props.data.rate_of_change}%</div> :
+            props.data.rate_of_change < 0 ? <div className={`${styles.rate_of_change} ${styles.decrease}`}>{props.data.rate_of_change}%</div> :
+            <div className={`${styles.rate_of_change} ${styles.unchanged}`}>{props.data.rate_of_change}%</div>
+          }
         </div>
       </div>
     </div>

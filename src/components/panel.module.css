@@ -1,14 +1,23 @@
 .panel_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0 3rem 0;
+}
+
+.panel_content_container {
   width: 80%;
   max-width: 70rem;
   height: 17rem;
   padding: 2rem 0;
+  margin-bottom: 2rem;
   display: flex;
   justify-content: space-between;
   background-color: white;
   border-radius: 1.5rem;
   overflow: hidden;
-  margin: 4rem 0 4rem 0;
   box-shadow: 0 5px 10px 0 black;
 }
 
@@ -30,7 +39,7 @@
 }
 
 @media (max-width: 1000px) {
-  .panel_container {
+  .panel_content_container {
     height: 20rem;
     flex-direction: column;
   }

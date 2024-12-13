@@ -1,0 +1,55 @@
+.container {
+  width: 80%;
+  max-width: 70rem;
+  height: 2rem;
+  padding: 1rem 1rem;
+  margin-top: 3rem;
+  background-color: white;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.search {
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.currency_name_input {
+  width: 75%;
+  height: 2.3rem;
+  font-size: 1rem;
+  padding: 0 0.75rem;
+  border: 1.5px solid rgb(6, 13, 13);
+  border-radius: 1rem 0 0 1rem;
+  outline: none;
+}
+
+.search_btn {
+  width: 4rem;
+  height: 2.5rem;
+  border: 1.5px solid rgb(6, 13, 13);
+  border-radius: 0 1rem 1rem 0;
+  background-color: rgb(6, 13, 13);
+  color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.select {
+  width: 25%;
+  max-width: 12rem;
+  min-width: 8rem;
+  height: 2.5rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  outline: none;
+  border: 3px solid rgb(6, 13, 13);
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
