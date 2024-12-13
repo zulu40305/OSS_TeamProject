@@ -164,12 +164,14 @@ export default function CurrencyList() {
       });
 
       modifiedData.map((e) => {
-        if (!dataArray.find(i => i.id === e.id)) dataArray.push(e);
+        if (!dataArray.find(i => i.id === e.id)) return dataArray.push(e);
+        else return e;
       });
 
       dataArray.map((e) => {
         const coveredData = modifiedData.find(i => i.id === e.id);
-        if (coveredData) e = coveredData;
+        if (coveredData) return e = coveredData;
+        else return e;
       });
 
       dataArray = dataArray.sort((a, b) => a.cur_unit.localeCompare(b.cur_unit));
