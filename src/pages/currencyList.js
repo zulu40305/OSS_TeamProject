@@ -119,9 +119,10 @@ export default function CurrencyList() {
 
   const getDataFromOpenAPI = async () => {
     const dateInfo = getDate();
-    const API_today = `/exchangeJSON?authkey=3wNf5tfXGjytedr8fF3AUEljbd30YBED&searchdate=${dateInfo.today}&data=AP01`;
-    const API_yesterday = `/exchangeJSON?authkey=3wNf5tfXGjytedr8fF3AUEljbd30YBED&searchdate=${dateInfo.yesterday}&data=AP01`;
-    const API_dayBeforeYesterday = `/exchangeJSON?authkey=3wNf5tfXGjytedr8fF3AUEljbd30YBED&searchdate=${dateInfo.beforeYesterday}&data=AP01`;
+    const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+    const API_today = `${PROXY}/exchangeJSON?authkey=3wNf5tfXGjytedr8fF3AUEljbd30YBED&searchdate=${dateInfo.today}&data=AP01`;
+    const API_yesterday = `${PROXY}/exchangeJSON?authkey=3wNf5tfXGjytedr8fF3AUEljbd30YBED&searchdate=${dateInfo.yesterday}&data=AP01`;
+    const API_dayBeforeYesterday = `${PROXY}/exchangeJSON?authkey=3wNf5tfXGjytedr8fF3AUEljbd30YBED&searchdate=${dateInfo.beforeYesterday}&data=AP01`;
     let dataArray = await getDataFromMockAPI();
     let response, response2, data, data2;
   
