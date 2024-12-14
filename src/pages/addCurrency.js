@@ -144,7 +144,7 @@ export default function AddCurrency() {
         bkpr: bkprRef.current.value,
         kftc_deal_bas_r: kdbrRef.current.value,
         kftc_bkpr: kbkprRef.current.value,
-        rate_of_change: rocRef.current.value.toFixed(2)
+        rate_of_change: rocRef.current.value
       }
 
       await addDataToMockAPI(data);
